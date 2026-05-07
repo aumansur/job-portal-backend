@@ -44,6 +44,7 @@ const loginUser = async (email: string, password: string) => {
 
   const refreshToken = createRefreshToken({
     id: user._id.toString(),
+    role: "admin"
   });
 
   return {
