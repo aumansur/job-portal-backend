@@ -21,7 +21,7 @@ export const createAccessToken = (payload: IJwtPayload) => {
     config.jwt_secret,
     {
       expiresIn: "1d",
-    }
+    },
   );
 };
 
@@ -39,7 +39,7 @@ export const createRefreshToken = (payload: IJwtPayload) => {
     config.refresh_secret,
     {
       expiresIn: "7d",
-    }
+    },
   );
 };
 

@@ -29,7 +29,6 @@ export const getJobs = async (req: any, res: Response) => {
       success: true,
       data: result,
     });
-
   } catch (error: any) {
     console.error("GET JOB ERROR:", error);
 
@@ -45,17 +44,12 @@ export const updateJob = async (req: any, res: Response) => {
   try {
     const { id } = req.params;
 
-    const result = await JobService.updateJob(
-      id,
-      req.body,
-      req.user
-    );
+    const result = await JobService.updateJob(id, req.body, req.user);
 
     res.json({
       success: true,
       data: result,
     });
-
   } catch (err: any) {
     res.status(403).json({
       success: false,
@@ -75,7 +69,6 @@ export const deleteJob = async (req: any, res: Response) => {
       success: true,
       message: "Job deleted successfully",
     });
-
   } catch (err: any) {
     res.status(403).json({
       success: false,

@@ -7,7 +7,6 @@ import {
   verifyRefreshToken,
 } from "../../utils/jwt";
 
-
 // 🔐 Register
 const registerUser = async (payload: Partial<IUser>) => {
   const isExist = await User.findOne({ email: payload.email });
@@ -20,8 +19,6 @@ const registerUser = async (payload: Partial<IUser>) => {
 
   return user;
 };
-
-
 
 // 🔐 Login
 const loginUser = async (email: string, password: string) => {
@@ -44,7 +41,7 @@ const loginUser = async (email: string, password: string) => {
 
   const refreshToken = createRefreshToken({
     id: user._id.toString(),
-    role: "admin"
+    role: "admin",
   });
 
   return {
@@ -52,8 +49,6 @@ const loginUser = async (email: string, password: string) => {
     refreshToken,
   };
 };
-
-
 
 // 🔄 Refresh Token
 const refreshTokenService = async (token: string) => {
@@ -83,14 +78,10 @@ const refreshTokenService = async (token: string) => {
   return accessToken;
 };
 
-
-
 // 🚪 Logout
 const logoutUser = async () => {
   return true;
 };
-
-
 
 // 🔐 Forgot Password
 const forgotPassword = async (email: string) => {
@@ -109,8 +100,6 @@ const forgotPassword = async (email: string) => {
 
   return resetToken;
 };
-
-
 
 // 🔐 Reset Password
 const resetPassword = async (token: string, newPassword: string) => {
@@ -131,8 +120,6 @@ const resetPassword = async (token: string, newPassword: string) => {
 
   return true;
 };
-
-
 
 // 🔥 FINAL EXPORT (LoanService style)
 export const AuthService = {

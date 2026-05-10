@@ -24,7 +24,7 @@ export const auth = (...roles: string[]) => {
       console.log("👉 ALLOWED ROLES:", roles);
 
       // 🔥 FIX: roles normalize
-      const normalizedRoles = roles.map(r => r.toLowerCase());
+      const normalizedRoles = roles.map((r) => r.toLowerCase());
 
       if (!normalizedRoles.includes(userRole)) {
         return res.status(403).json({

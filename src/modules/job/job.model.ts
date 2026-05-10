@@ -103,7 +103,7 @@ const jobSchema = new Schema<IJob>(
       required: true,
     },
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
 export const Job = mongoose.model<IJob>("Job", jobSchema);

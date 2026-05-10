@@ -34,10 +34,10 @@ const applicationSchema = new Schema<IApplication>(
       default: "PENDING",
     },
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
 export const Application = mongoose.model<IApplication>(
   "Application",
-  applicationSchema
+  applicationSchema,
 );

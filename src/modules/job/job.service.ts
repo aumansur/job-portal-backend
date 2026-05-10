@@ -10,13 +10,7 @@ export const createJob = async (payload: any, userId: string) => {
 
 // 🔥 GET JOBS (FIXED)
 export const getJobs = async (queryParams: any, user: any) => {
-  const {
-    search,
-    location,
-    jobType,
-    minSalary,
-    maxSalary,
-  } = queryParams;
+  const { search, location, jobType, minSalary, maxSalary } = queryParams;
 
   const query: any = {};
 
@@ -70,10 +64,7 @@ export const updateJob = async (id: string, payload: any, user: any) => {
 
   const role = user.role.toLowerCase();
 
-  if (
-    role !== "admin" &&
-    job.createdBy?.toString() !== user.id
-  ) {
+  if (role !== "admin" && job.createdBy?.toString() !== user.id) {
     throw new Error("Not authorized");
   }
 
@@ -87,10 +78,7 @@ export const deleteJob = async (id: string, user: any) => {
 
   const role = user.role.toLowerCase();
 
-  if (
-    role !== "admin" &&
-    job.createdBy?.toString() !== user.id
-  ) {
+  if (role !== "admin" && job.createdBy?.toString() !== user.id) {
     throw new Error("Not authorized");
   }
 

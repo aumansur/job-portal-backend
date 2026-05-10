@@ -25,8 +25,6 @@ export const toggleUserStatus = async (req: any, res: any) => {
 
   res.json({
     success: true,
-    message: user.isActive
-      ? "User Activated"
-      : "User Deactivated",
+    message: user.isActive ? "User Activated" : "User Deactivated",
   });
 };

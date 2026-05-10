@@ -6,7 +6,6 @@ import { sendResponse } from "../../utils/sendResponse";
 import { AuthService } from "./auth.service";
 import { User } from "../user/user.model";
 
-
 // 🔐 Register
 const register = catchAsync(async (req: Request, res: Response) => {
   const result = await AuthService.registerUser(req.body);
@@ -18,7 +17,6 @@ const register = catchAsync(async (req: Request, res: Response) => {
     data: result,
   });
 });
-
 
 // 🔐 Login (FIXED)
 const login = catchAsync(async (req: Request, res: Response) => {
@@ -62,7 +60,7 @@ const login = catchAsync(async (req: Request, res: Response) => {
       role: user.role,
     },
     process.env.JWT_SECRET as string,
-    { expiresIn: "7d" }
+    { expiresIn: "7d" },
   );
 
   // ✅ SAFE REMOVE PASSWORD (NO DELETE ERROR)
@@ -80,7 +78,6 @@ const login = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
-
 // 🔄 Refresh Token
 const refreshToken = catchAsync(async (req: Request, res: Response) => {
   const { refreshToken } = req.body;
@@ -94,7 +91,6 @@ const refreshToken = catchAsync(async (req: Request, res: Response) => {
     data: { accessToken },
   });
 });
-
 
 // 🔐 Forgot Password
 const forgotPassword = catchAsync(async (req: Request, res: Response) => {
@@ -110,7 +106,6 @@ const forgotPassword = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
-
 // 🔐 Reset Password
 const resetPassword = catchAsync(async (req: Request, res: Response) => {
   const { token, password } = req.body;
@@ -124,7 +119,6 @@ const resetPassword = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
-
 // 🚪 Logout
 const logout = catchAsync(async (req: Request, res: Response) => {
   await AuthService.logoutUser();
@@ -135,7 +129,6 @@ const logout = catchAsync(async (req: Request, res: Response) => {
     message: "Logged out successfully",
   });
 });
-
 
 // ✅ FINAL EXPORT
 export const AuthController = {

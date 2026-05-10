@@ -3,7 +3,6 @@ import { Job } from "../job/job.model";
 import { Application } from "../application/application.model";
 import { User } from "../user/user.model";
 
-
 // ======================= 👑 ADMIN =======================
 export const getAdminStats = async (req: any, res: Response) => {
   try {
@@ -49,7 +48,6 @@ export const getAdminStats = async (req: any, res: Response) => {
     });
   }
 };
-
 
 // ======================= 👤 USER =======================
 export const getUserStats = async (req: any, res: Response) => {
@@ -107,7 +105,6 @@ export const getUserStats = async (req: any, res: Response) => {
     });
   }
 };
-
 
 // ======================= 🏢 EMPLOYER =======================
 export const getEmployerStats = async (req: any, res: Response) => {

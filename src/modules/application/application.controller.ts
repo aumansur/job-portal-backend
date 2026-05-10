@@ -6,7 +6,6 @@ import {
   updateApplicationStatusService,
 } from "./application.service";
 
-
 // 🔥 Apply Job
 export const applyJob = async (req: any, res: Response) => {
   try {
@@ -27,7 +26,6 @@ export const applyJob = async (req: any, res: Response) => {
   }
 };
 
-
 // 🔥 My Applications
 export const getMyApplications = async (req: any, res: Response) => {
   try {
@@ -47,7 +45,6 @@ export const getMyApplications = async (req: any, res: Response) => {
   }
 };
 
-
 // 🔥 Admin → All Applications
 export const getAllApplications = async (req: any, res: Response) => {
   try {
@@ -64,7 +61,6 @@ export const getAllApplications = async (req: any, res: Response) => {
     });
   }
 };
-
 
 // 🔥 Accept / Reject
 export const updateApplicationStatus = async (req: any, res: Response) => {

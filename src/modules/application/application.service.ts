@@ -1,6 +1,5 @@
 import { Application } from "./application.model";
 
-
 // 🔥 Apply Job
 export const applyJobService = async (userId: string, payload: any) => {
   const { job, expectedSalary, coverLetter } = payload;
@@ -25,14 +24,12 @@ export const applyJobService = async (userId: string, payload: any) => {
   return application;
 };
 
-
 // 🔥 Get My Applications
 export const getMyApplicationsService = async (userId: string) => {
   return Application.find({ user: userId })
     .populate("job")
     .sort({ createdAt: -1 });
 };
-
 
 // 🔥 Admin → All Applications
 export const getAllApplicationsService = async () => {
@@ -42,16 +39,15 @@ export const getAllApplicationsService = async () => {
     .sort({ createdAt: -1 });
 };
 
-
 // 🔥 Update Status (Accept / Reject)
 export const updateApplicationStatusService = async (
   id: string,
-  status: string
+  status: string,
 ) => {
   const application = await Application.findByIdAndUpdate(
     id,
     { status },
-    { new: true }
+    { new: true },
   );
 
   if (!application) {
